@@ -1,0 +1,25 @@
+<!-- templates/playlists_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/donations'>
+  <fieldset>
+    <legend>New Donation</legend>
+    <p>
+      <label for='title'>Name</label><br>
+      <input type='text' name='title' />
+    </p>
+    <p>
+      <label for='description'>Description</label><br>
+      <input type='text' name='description' />
+    </p>
+    <p>
+      <label for='amount'>Amount</label><br>
+      <input type='text' name='amount' />
+    </p>
+  </fieldset>
+  <p>
+    <button type='submit'>Save Donation</button>
+  </p>
+</form>
+{% endblock %}
