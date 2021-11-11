@@ -33,9 +33,11 @@ def donations_submit():
   donation = {
     'title': request.form.get('title'),
     'description': request.form.get('description'),
-    'amount': request.form.get('amount')
+    'amount': '$' + request.form.get('amount'),
+    'rating': request.form.get('rating')
   }
   donations.insert_one(donation)
+  print(f"donation is '{donation}'")
   return redirect(url_for('donations_index'))
 
 
