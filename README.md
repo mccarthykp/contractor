@@ -16,11 +16,11 @@ They contract you to build a web application that at least keeps track of what d
 - [x] Drawn wireframes
 - [x] Drawn ERD
 - [x] Written in either JavaScript using Node.js, Express.js or Python using Flask, and MongoDB
-- [] Written in MVC with separate files for each concern
-- [] CRUD >=2 Resources and associate them
-- [] One of your resources or an additional resource can be pulled from an API (stretch)
-- [] 100% test coverage of all routes (stretch)
-- [] A conventional UI using Bootstrap
-- [] Pushed live to Heroku
-- [] AJAX requests for POST/PUT/DELETE requests - Server-side rendering for GET requests (stretch)
-- [] Use an external API (stretch)
+- [ ] Written in MVC with separate files for each concern
+- [ ] CRUD >=2 Resources and associate them
+- [ ] One of your resources or an additional resource can be pulled from an API (stretch)
+- [ ] 100% test coverage of all routes (stretch)
+- [ ] A conventional UI using Bootstrap
+- [ ] Pushed live to Heroku
+- [ ] AJAX requests for POST/PUT/DELETE requests - Server-side rendering for GET requests (stretch)
+- [ ] Use an external API (stretch)
