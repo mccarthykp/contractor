@@ -18,7 +18,7 @@ def donations_index():
 @app.route('/donations/new')
 def donations_new():
   ''' Create a new donation '''
-  return render_template('donations_new.html')
+  return render_template('donations_new.html', title='New Donation')
 
 # donations post request route ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 # submit route for donations post request form dict info to be added as a donation object in the database
@@ -34,12 +34,36 @@ def donations_submit():
   donation_id = donations.insert_one(donation).inserted_id
   return redirect(url_for('donations_show', donation_id=donation_id))
 
-# single donation route
+# single donation route ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 @app.route('/donations/<donation_id>')
 def donations_show(donation_id):
   ''' Show a single donation '''
   donation = donations.find_one({'_id': ObjectId(donation_id)})
   return render_template('donations_show.html', donation=donation)
+
+# Edit route for single donations ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+@app.route('/donations/<donation_id>/edit')
+def donations_edit(donation_id):
+  ''' Edit a single donation '''
+  donation = donations.find_one({'_id': ObjectId(donation_id)})
+  return render_template('donations_edit.html', donation=donation, title='Edit Donation')
+
+# Update route for single donations ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+@app.route('/donations/<donation_id>', methods=['POST'])
+def donations_update(donation_id):
+  ''' Submit an edited donation '''
+  updated_donation = {
+    'title': request.form.get('title'),
+    'description': request.form.get('description'),
+    'amount': '$' + request.form.get('amount'),
+    'rating': request.form.get('rating')
+  }
+  donations.update_one(
+    {'_id': ObjectId(donation_id)},
+    {'$set': updated_donation}
+  )
+  return redirect(url_for('donations_show', donation_id=donation_id))
+
 
 if __name__ == '__main__':
   app.run(debug=True)

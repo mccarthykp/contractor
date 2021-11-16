@@ -1,4 +1,3 @@
-<!-- templates/playlists_show.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -7,4 +6,6 @@
 <p>{{ donation.description }}</p>
 <p>{{ donation.amount }}</p>
 <p>{{ donation.rating }}</p>
+
+<p><a href='/donations/{{ donation._id }}/edit'>Edit</a></p>
 {% endblock %}
