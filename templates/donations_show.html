@@ -1,0 +1,10 @@
+<!-- templates/playlists_show.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/'>Back to Donations</a>
+<h2>{{ donation.title }}</h2>
+<p>{{ donation.description }}</p>
+<p>{{ donation.amount }}</p>
+<p>{{ donation.rating }}</p>
+{% endblock %}

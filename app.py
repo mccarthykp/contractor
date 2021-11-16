@@ -1,5 +1,5 @@
-import re
 from flask import Flask, render_template, request, redirect, url_for
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 
 client = MongoClient()
@@ -7,11 +7,6 @@ db = client.Contractor
 donations = db.donations
 
 app = Flask(__name__)
-
-# donations = [
-#   { 'title': 'St. Jude', 'description': 'fund for underserved members of the community', 'amount': '1000' },
-#   { 'title': 'Red Cross', 'description': 'fund to aid those affected by disasters', 'amount': '1000' }
-# ]
 
 # home/donations route ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 @app.route('/')
@@ -36,11 +31,15 @@ def donations_submit():
     'amount': '$' + request.form.get('amount'),
     'rating': request.form.get('rating')
   }
-  donations.insert_one(donation)
-  print(f"donation is '{donation}'")
-  return redirect(url_for('donations_index'))
+  donation_id = donations.insert_one(donation).inserted_id
+  return redirect(url_for('donations_show', donation_id=donation_id))
 
-
+# single donation route
+@app.route('/donations/<donation_id>')
+def donations_show(donation_id):
+  ''' Show a single donation '''
+  donation = donations.find_one({'_id': ObjectId(donation_id)})
+  return render_template('donations_show.html', donation=donation)
 
 if __name__ == '__main__':
   app.run(debug=True)
