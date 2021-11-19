@@ -8,4 +8,9 @@
 <p>{{ donation.rating }}</p>
 
 <p><a href='/donations/{{ donation._id }}/edit'>Edit</a></p>
+<p>
+  <form method='POST' action='/donations/{{ donation._id }}/delete'>
+    <button type='submit'>Delete</button>
+  </form>
+</p>
 {% endblock %}

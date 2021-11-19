@@ -64,6 +64,12 @@ def donations_update(donation_id):
   )
   return redirect(url_for('donations_show', donation_id=donation_id))
 
+# Delete route for single donations ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+@app.route('/donations/<donation_id>/delete', methods=['POST'])
+def donations_delete(donation_id):
+  ''' Delete one donation '''
+  donations.delete_one({'_id': ObjectId(donation_id)})
+  return redirect(url_for('donations_index'))
 
 if __name__ == '__main__':
   app.run(debug=True)
