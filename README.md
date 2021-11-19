@@ -18,5 +18,5 @@ They contract you to build a web application that at least keeps track of what d
 - [x] Written in either JavaScript using Node.js, Express.js or Python using Flask, and MongoDB
 - [x] Written in MVC with separate files for each concern
 - [x] A conventional UI using Bootstrap
-- [ ] CRUD >=2 Resources and associate them
-- [ ] Pushed live to Heroku
+- [ ] CRUD >=2 Resources and associate them | Donation Resource fully CRUD
+- [ ] Pushed live to Heroku | Repo instructions outdated.. online resources are convoluted
