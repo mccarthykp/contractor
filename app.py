@@ -18,7 +18,13 @@ def donations_index():
 @app.route('/donations/new')
 def donations_new():
   ''' Create a new donation '''
-  return render_template('donations_new.html', title='New Donation')
+  donation = {
+    'title': 'title',
+    'description': 'description',
+    'amount': 'amount',
+    'rating': 0
+  }
+  return render_template('donations_new.html', title='New Donation', donation=donation)
 
 # donations post request route ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 # submit route for donations post request form dict info to be added as a donation object in the database

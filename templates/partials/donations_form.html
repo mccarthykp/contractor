@@ -1,24 +1,24 @@
 <fieldset>
   <legend>{{ title }}</legend>
   
-  <p>
+  <div class='form-group'>
       <label for='donation-title'>Title</label><br>
-      <input type='text' name='title' value='{{ donation.title }}'/>
-  </p>
+      <input class='form-control' type='text' name='title' value='{{ donation.title }}'/>
+  </div>
   
-  <p>
+  <div class='form-group'>
     <label for='description'>Description</label><br>
-    <input type='text' name='description' value='{{ donation.description }}' />
-  </p>
+    <input class='form-control' type='text' name='description' value='{{ donation.description }}' />
+  </div>
 
-  <p>
+  <div class='form-group'>
     <label for='amount'>Amount</label><br>
-    <input value='{{ donation.amount }}' type='text' name='amount'/>
-  </p>
+    <input class='form-control' value='{{ donation.amount }}' type='text' name='amount'/>
+  </div>
 
-  <p>
+  <p class='form-group'>
     <label for='rating'>Rating</label><br>
-    <select value='{{ donation.rating }}' name='rating'>
+    <select class='form-control' value='{{ donation.rating }}' name='rating'>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -29,6 +29,6 @@
 </fieldset>
 
 <!-- BUTTON -->
-<p>
+<!-- <p>
   <button type='submit'>Save Playlist</button>
-</p>
+</p> -->
