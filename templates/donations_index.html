@@ -10,8 +10,8 @@
             <div class='col-md-3'>
                 <h2><a href='/donations/{{ donation._id }}'>{{ donation.title }}</a></h2>
                 <p>{{ donation.description }}</p>
-                <p>{{ donation.amount }}</p>
-                <p>{{ donation.rating }}</p>
+                <p class="amount">{{ donation.amount }}</p>
+                <p class="rating-num"><span class="rating-text">Rating:</span> {{ donation.rating }}/5</p>
             </div>
     {% endfor %}
     </div>
